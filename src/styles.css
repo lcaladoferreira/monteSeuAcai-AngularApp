@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Arial;
+  background-color: aquamarine;
+}
+app-root {
+  display: block;
+  background-color: white;
+  max-width: 400px;
+  margin: auto;
+  padding: 16px 0;
+}
+
+h2 {
+  padding: 0 16px;
+  align-items: center;
+}

@@ -1,0 +1,28 @@
+<div class="cabecalho">
+  <div class="titulo">{{ titulo }}</div>
+  <div *ngIf="multiplaEscolha()">
+    Escolha até {{ escolhaAte }}
+    <span [ngSwitch]="opcoesSelecionadas.length">
+      <span *ngSwitchCase="0"></span>
+      <span *ngSwitchCase="1"> (1 selecionada) </span>
+      <span *ngSwitchDefault>
+        ({{ opcoesSelecionadas.length }} selecionadas)
+      </span>
+    </span>
+  </div>
+</div>
+<div class="corpo">
+  <label class="opcao" *ngFor="let opcao of opcoes">
+    <input
+      [type]="multiplaEscolha() ? 'checkbox' : 'radio'"
+      [checked]="opcaoSelecionada(opcao)"
+      (change)="marcaOuDesmarcaOpcao(opcao)"
+      [disabled]="
+        multiplaEscolha() &&
+        opcoesSelecionadas.length >= escolhaAte &&
+        !opcaoSelecionada(opcao)
+      "
+    />
+    <span>{{ opcao }}</span>
+  </label>
+</div>
